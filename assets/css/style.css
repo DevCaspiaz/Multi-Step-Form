@@ -1,0 +1,213 @@
+@import url("./reset.css");
+
+@import url("./variable.css");
+
+main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    width: 65.27%;
+    height: 60rem;
+    background-color: var(--white);
+    box-shadow: 0 25px 40px -20px #00000018;
+    border-radius: var(--xl-radius);
+    padding: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+}
+
+/* ASIDE */
+
+.steps {
+    width: 30.18%;
+    height: 56.8rem;
+    background-color: var(--purple);
+    position: relative;
+    border-radius: var(--side-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding: 4rem 3.2rem;
+}
+
+.bg-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.step-line {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+}
+
+.step-order {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 1px solid var(--white);
+    border-radius: var(--circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--size-small);
+    font-weight: var(--weight-bold);
+    letter-spacing: 1px;
+    line-height: var(--line-height-3);
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.step-order.active { 
+    background-color: var(--sky-blue);
+    color: var(--denim);
+    transition: all .2s ease;
+}
+
+.step-text {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.order-num {
+   font-size: var(--size-xsmall); 
+   font-weight: var(--weight-thin);
+   line-height: var(--line-height-3);
+   color: var(--light-blue);
+   text-transform: uppercase;
+}
+
+.order-info {
+    font-size: var(--size-small);
+    font-weight: var(--weight-bold);
+    line-height: var(--line-height-3);
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+/* Content */
+
+.content-box {
+    width: 45rem;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.content {width: 100%;}
+
+#primary-content {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#secondary-content {
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#third-content {
+    background-color: purple;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#fourth-content {
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.content-title {
+    margin-block-end: 1.1rem;
+    font-size: var(--size-heading);
+    font-weight: var(--weight-bold);
+    line-height: var(--line-height-3);
+    color: var(--denim);
+}
+
+.content-text {
+    margin-block-end: 3.5rem;
+    font-size: var(--size-regular);
+    font-weight: var(--weight-thin);
+    line-height: var(--line-height-2);
+    color: var(--gray);
+}
+
+/* Content Form */
+
+.form-label:not(:last-child) {
+    display: block;
+    margin-block-end: 2.4rem;
+}
+
+.label-name {
+    display: block;
+    font-size: var(--size-small);
+    font-weight: var(--weight-thin);
+    line-height: var(--line-height-3);
+    color: var(--denim);
+    margin-block-end: .8rem;
+}
+
+.label-input {
+    display: block;
+    width: 100%;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--regular-radius);
+    background-color: var(--white);
+    color: var(--denim);
+}
+
+.label-input:focus,
+.label-input:focus-visible {
+    outline: none;
+}
+
+.label-input::placeholder, .label-input {
+    font-size: var(--size-regular);
+    font-weight: var(--weight-regular);
+    line-height: var(--line-height-2);
+}
+
+.label-input::placeholder { color: var(--gray);}
+
+
+/* Button */
+.btn {
+    display: block;
+    padding: 1.5rem 2.5rem;
+    background-color: var(--denim);
+    border-radius: var(--regular-radius);
+    font-size: var(--size-regular);
+    font-weight: var(--weight-regular);
+    line-height: var(--line-height-3);
+    text-align: center;
+    color: var(--white);
+    outline: none;
+    border: none;
+    margin-left: auto;
+    margin-block-start: 9.2rem;
+    transition: all 130ms ease;
+}

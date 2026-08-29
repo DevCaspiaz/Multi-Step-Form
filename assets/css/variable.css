@@ -1,0 +1,47 @@
+:root{
+
+    /*!Colors  */
+    --white: #FFFFFF;
+    --light-gray: #F8F9FF;
+    --bg-color: #EFF5FF;
+    --border: #D6D9E6;
+    --gray: #9699AA;
+    --sky-blue: #BEE2FD;
+    --light-blue: #ABBCFF;
+    --hover-color: #928CFF;
+    --purple: #483EFF;
+    --denim: #022959;
+    --btn-hover: #164A8A;
+    --black: #000000;
+    --red-color: #EE374A;
+
+    /** Typography  */
+    --font-family: "Ubuntu", sans-serif;
+
+    /** Font Size  */
+    --size-xsmall: 1.2rem;
+    --size-small: 1.4rem;
+    --size-regular: 1.6rem;
+    --size-large: 2.4rem;
+    --size-heading: 3.2rem;
+
+    /** Font Weight */
+    --weight-thin: 400;
+    --weight-regular: 500;
+    --weight-bold: 700;
+
+    /** Line-height  */
+    --line-height-1: 2rem;
+    --line-height-2: 2.5rem;
+    --line-height-3: 100%;
+
+    /** Letter-List-Parag. Spacing  */
+    --letter-space: 1px;
+
+    /** Border Radius  */
+    --circle: 50%;
+    --small-radius: .4rem;
+    --regular-radius: .8rem;
+    --side-radius: 1rem;
+    --xl-radius: 1.5rem
+}

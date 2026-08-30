@@ -6,26 +6,55 @@ const content = document.querySelectorAll(".content");
 const nextButtons = document.querySelectorAll(".btn");
 const backButtons = document.querySelectorAll(".back-btn");
 
+
+
 let currentStep = 0;
 
 //Move next step
-function showStep(stepIndex) {
+// function showStep(stepIndex) {
 
+//     content.forEach((item) => {
+//         item.style.display = "none";
+//     });
+
+//     content[stepIndex].style.display = "flex";
+
+//     stepOrder.forEach((item) => {
+//         item.classList.remove("active");
+//     });
+
+//     stepOrder[stepIndex].classList.add("active");
+
+//     currentStep = stepIndex;
+
+// }/// each step-order change
+
+function showStep(stepIndex) {
     content.forEach((item) => {
         item.style.display = "none";
     });
 
-    content[stepIndex].style.display = "block";
+    content[stepIndex].style.display = "flex";
 
-    stepOrder.forEach((item) => {
+    stepOrder.forEach((item, index) => {
         item.classList.remove("active");
+
+        if (index <= stepIndex) {
+            item.classList.add("active");
+        }
     });
 
-    stepOrder[stepIndex].classList.add("active");
-
     currentStep = stepIndex;
-
 }
+
+const confirmButtons = document.querySelector(".confirm-btn");
+const pageFinish = document.querySelector(".page-finish");
+
+confirmButtons.addEventListener("click", () => {
+    pageFinish.style.display = "flex";
+})
+
+
 
 const form = document.querySelector(".content-form");
 

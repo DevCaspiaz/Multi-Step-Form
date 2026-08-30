@@ -10,26 +10,12 @@ const backButtons = document.querySelectorAll(".back-btn");
 
 let currentStep = 0;
 
-//Move next step
-// function showStep(stepIndex) {
-
-//     content.forEach((item) => {
-//         item.style.display = "none";
-//     });
-
-//     content[stepIndex].style.display = "flex";
-
-//     stepOrder.forEach((item) => {
-//         item.classList.remove("active");
-//     });
-
-//     stepOrder[stepIndex].classList.add("active");
-
-//     currentStep = stepIndex;
-
-// }/// each step-order change
 
 function showStep(stepIndex) {
+    if (stepIndex === 3) {
+        updateSummary();
+    }
+
     content.forEach((item) => {
         item.style.display = "none";
     });
@@ -48,10 +34,9 @@ function showStep(stepIndex) {
 }
 
 const confirmButtons = document.querySelector(".confirm-btn");
-const pageFinish = document.querySelector(".page-finish");
 
 confirmButtons.addEventListener("click", () => {
-    pageFinish.style.display = "flex";
+    showStep(content.length - 1);
 })
 
 
@@ -63,6 +48,10 @@ const form = document.querySelector(".content-form");
 nextButtons.forEach((button) => {
     
     button.addEventListener("click", () =>{
+
+        if (button.classList.contains("confirm-btn")) {
+            return;
+        }
 
         if(currentStep === 0 && !form.checkValidity()){
             form.reportValidity();
@@ -218,5 +207,70 @@ pickBox.forEach((box) =>{
     })
 
 })
+
+
+//*Fourth — summary
+
+const summaryPlanName = document.querySelector(".summary-plan-name");
+const summaryBilling = document.querySelector(".monthly-yearly");
+const summaryPlanCost = document.querySelector(".summary-plan-cost");
+const summaryPeriods = document.querySelectorAll(".summary-period");
+const summaryTotalLabel = document.querySelector(".total");
+const summaryTotalAmount = document.querySelector(".summary-total-amount");
+const summaryExtras = document.querySelector(".about-extra");
+const summaryLine = document.querySelector(".line");
+const changeBtn = document.querySelector(".change-btn");
+
+function getSelectedPlan() {
+    const selectedCard = document.querySelector(".active-plan-card");
+    const isYearly = circle.classList.contains("active");
+    const costSelector = isYearly ? ".yearly .cost" : ".monthly .cost";
+
+    return {
+        name: selectedCard.querySelector(".card-title").textContent.trim(),
+        cost: Number(selectedCard.querySelector(costSelector).textContent),
+        isYearly
+    };
+}
+
+function getSelectedAddons(isYearly) {
+    const costSelector = isYearly ? ".yearly-cost .cost" : ".monthly-cost .cost";
+
+    return Array.from(document.querySelectorAll(".pick-box.selected")).map((box) => ({
+        name: box.querySelector(".pick-box-title").textContent.trim(),
+        cost: Number(box.querySelector(costSelector).textContent)
+    }));
+}
+
+function updateSummary() {
+    const plan = getSelectedPlan();
+    const addons = getSelectedAddons(plan.isYearly);
+    const period = plan.isYearly ? "/yr" : "/mo";
+    const billingLabel = plan.isYearly ? "(Yearly)" : "(Monthly)";
+    const total = plan.cost + addons.reduce((sum, addon) => sum + addon.cost, 0);
+
+    summaryPlanName.textContent = plan.name;
+    summaryBilling.textContent = billingLabel;
+    summaryPlanCost.textContent = plan.cost;
+    summaryTotalLabel.textContent = plan.isYearly ? "Total (per year)" : "Total (per month)";
+    summaryTotalAmount.textContent = total;
+
+    summaryPeriods.forEach((item) => {
+        item.textContent = period;
+    });
+
+    summaryExtras.innerHTML = addons.map((addon) => `
+        <div class="extras">
+            <span class="extra-name">${addon.name}</span>
+            <span class="extra-cost">+$<span>${addon.cost}</span>${period}</span>
+        </div>
+    `).join("");
+
+    summaryLine.classList.toggle("is-hidden", addons.length === 0);
+}
+
+changeBtn.addEventListener("click", () => {
+    showStep(1);
+});
 
 

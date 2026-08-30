@@ -453,14 +453,21 @@ main {
     color: var(--denim);
 }
 
+.about-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.line.is-hidden,
+.about-extra:empty {
+    display: none;
+}
+
 .extras {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.extras:first-child {
-    margin-block-end: 1.6rem;
 }
 
 .extra-name, .extra-cost, .total {

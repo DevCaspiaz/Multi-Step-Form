@@ -97,7 +97,7 @@
 
                             <span class="label-name">Name</span>
 
-                            <input type="text" placeholder="e.g Stephan King" id="name" autocomplete="username" class="label-input">
+                            <input type="text" placeholder="e.g Stephan King" id="name" autocomplete="username" class="label-input" required>
 
                         </label>
 
@@ -105,7 +105,7 @@
 
                             <span class="label-name">Email Address</span>
                             
-                            <input type="email" name="email" id="email" placeholder="e.g stephanking@lorem.com" autocomplete="email" class="label-input">
+                            <input type="email" name="email" id="email" placeholder="e.g stephanking@lorem.com" autocomplete="email" class="label-input" required>
 
                         </label>
 
@@ -113,89 +113,186 @@
 
                             <span class="label-name">Phone Number</span>
 
-                            <input type="tel" name="mobile" id="mobile" placeholder="e.g +1 234 567 890" autocomplete="tel" class="label-input">
+                            <input type="tel" name="mobile" id="mobile" placeholder="e.g +1 234 567 890" autocomplete="tel" class="label-input" required>
 
                         </label>
 
                     </form>
 
-                    <button type="submit" class="btn">Next Step</button>
+                    <div class="btn-box">
+                        <button type="submit" class="btn">Next Step</button>
+                    </div>
 
                 </div>
 
                 <div class="content" id="secondary-content">
 
-                    <h2 class="content-title">Personal info</h2>
+                    <h2 class="content-title">Select your plan</h2>
 
-                    <p class="content-text">Please provide your name, email address, and phone number.</p>
+                    <p class="content-text">You have the option of monthly or yearly billing.</p>
 
-                    <form action="#" class="content-form">
+                    <div class="plan-container">
 
-                        <label for="name" class="form-label">
+                        <div class="plan-card active-plan-card">
 
-                            <span class="label-name">Name</span>
+                            <img src="./assets/image/arcade.svg" alt="" class="card-img">
 
-                            <input type="text" placeholder="e.g Stephan King" id="name" autocomplete="username" class="label-input">
+                            <div class="card-text">
 
-                        </label>
+                                <h3 class="card-title">Arcade</h3>
 
-                        <label for="email" class="form-label">
+                                <span class="card-cost monthly">$9/mo</span>
+                                <span class="card-cost yearly">$90/yr</span>
 
-                            <span class="label-name">Email Address</span>
-                            
-                            <input type="email" name="email" id="email" placeholder="e.g stephanking@lorem.com" autocomplete="email" class="label-input">
+                                <span class="yearly-extra">2 months free</span>
 
-                        </label>
+                            </div>
 
-                        <label for="mobile" class="form-label">
+                        </div>
 
-                            <span class="label-name">Phone Number</span>
+                        <div class="plan-card">
 
-                            <input type="tel" name="mobile" id="mobile" placeholder="e.g +1 234 567 890" autocomplete="tel" class="label-input">
+                            <img src="./assets/image/advanced.svg" alt="" class="card-img">
 
-                        </label>
+                            <div class="card-text">
 
-                    </form>
+                                <h3 class="card-title">Advanced</h3>
 
-                    <button type="submit" class="btn">Next Step</button>
+                                <span class="card-cost monthly">$12/mo</span>
+                                <span class="card-cost yearly">$120/yr</span>
+
+                                <span class="yearly-extra">2 months free</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="plan-card">
+
+                            <img src="./assets/image/pro.svg" alt="" class="card-img">
+
+                            <div class="card-text">
+
+                                <h3 class="card-title">Pro</h3>
+
+                                <span class="card-cost monthly">$15/mo</span>
+                                <span class="card-cost yearly">$150/yr</span>
+
+                                <span class="yearly-extra">2 months free</span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="plan-options">
+
+                        <button type="button" class="monthly-btn selected">Monthly</button>
+
+                        <div class="option-btn">
+
+                            <span class="circle"></span>
+
+                        </div>
+
+                        <button type="button" class="yearly-btn">Yearly</button>
+
+                    </div>
+
+                    <div class="btn-box">
+
+                        <button type="button" class="back-btn">Go Back</button>
+
+                        <button type="submit" class="btn">Next Step</button>
+                    </div>
 
                 </div>
 
                 <div class="content" id="third-content">
 
-                    <h2 class="content-title">Personal info</h2>
+                    <h2 class="content-title">Pick add-ons</h2>
 
-                    <p class="content-text">Please provide your name, email address, and phone number.</p>
+                    <p class="content-text">Add-ons help enhance your gaming experience.</p>
 
-                    <form action="#" class="content-form">
+                    <div class="pick-extra">
 
-                        <label for="name" class="form-label">
+                        <div class="pick-box">
 
-                            <span class="label-name">Name</span>
+                            <div class="pick-box-content">
 
-                            <input type="text" placeholder="e.g Stephan King" id="name" autocomplete="username" class="label-input">
+                                <div class="pick-box-check">
+                                    <img src="./assets/image/done.svg" alt="done sign">
+                                </div>
 
-                        </label>
+                                <div class="pick-box-text">
+                                    <h3 class="pick-box-title">Online service</h3>
+                                    <p class="pick-box-info">Access to multiplayer games</p>
+                                </div>
 
-                        <label for="email" class="form-label">
+                            </div>
 
-                            <span class="label-name">Email Address</span>
-                            
-                            <input type="email" name="email" id="email" placeholder="e.g stephanking@lorem.com" autocomplete="email" class="label-input">
+                            <div class="box-cost">
+                                <span class="monthly-cost">+$1/mo</span>
+                                <span class="yearly-cost">+$10/yr</span>
+                            </div>
 
-                        </label>
+                        </div>
 
-                        <label for="mobile" class="form-label">
+                        <div class="pick-box">
 
-                            <span class="label-name">Phone Number</span>
+                            <div class="pick-box-content">
 
-                            <input type="tel" name="mobile" id="mobile" placeholder="e.g +1 234 567 890" autocomplete="tel" class="label-input">
+                                <div class="pick-box-check">
+                                    <img src="./assets/image/done.svg" alt="done sign">
+                                </div>
 
-                        </label>
+                                <div class="pick-box-text">
+                                    <h3 class="pick-box-title">Larger storage</h3>
+                                    <p class="pick-box-info">Extra 1TB of cloud save</p>
+                                </div>
 
-                    </form>
+                            </div>
 
-                    <button type="submit" class="btn">Next Step</button>
+                            <div class="box-cost">
+                                <span class="monthly-cost">+$2/mo</span>
+                                <span class="yearly-cost">+$20/yr</span>
+                            </div>
+
+                        </div>
+
+                        <div class="pick-box">
+
+                            <div class="pick-box-content">
+
+                                <div class="pick-box-check">
+                                    <img src="./assets/image/done.svg" alt="done sign">
+                                </div>
+
+                                <div class="pick-box-text">
+                                    <h3 class="pick-box-title">Customizable profile</h3>
+                                    <p class="pick-box-info">Custom theme on your profile</p>
+                                </div>
+
+                            </div>
+
+                            <div class="box-cost">
+                                <span class="monthly-cost">+$2/mo</span>
+                                <span class="yearly-cost">+$20/yr</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="btn-box">
+
+                        <button type="button" class="back-btn">Go Back</button>
+
+                        <button type="submit" class="btn">Next Step</button>
+                        
+                    </div>
 
                 </div>
 
@@ -233,7 +330,13 @@
 
                     </form>
 
-                    <button type="submit" class="btn">Next Step</button>
+                    <div class="btn-box">
+
+                        <button type="button" class="back-btn">Go Back</button>
+
+                        <button type="submit" class="btn">Next Step</button>
+
+                    </div>
 
                 </div>
 

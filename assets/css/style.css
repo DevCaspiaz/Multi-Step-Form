@@ -106,13 +106,12 @@ main {
 }
 
 .content { 
+    display: none;
     width: 100%;
     flex-direction: column;
 }
 
-#secondary-content, #third-content, #fourth-content {
-    display: none;
-}
+.content.is-active { display: flex;}
 
 .content-title {
     margin-block-end: 1.1rem;
@@ -214,6 +213,11 @@ main {
     transition: all 130ms ease;
 }
 
+.btn:hover,
+.btn:focus-visible {
+    background-color: var(--btn-hover);
+}
+
 .back-btn {
     border: none;
     outline: none;
@@ -278,6 +282,19 @@ main {
 }
 
 .yearly { display: none;}
+
+.yearly-cost { display: none;}
+
+body.is-yearly .monthly,
+body.is-yearly .monthly-cost {
+    display: none;
+}
+
+body.is-yearly .yearly,
+body.is-yearly .yearly-extra,
+body.is-yearly .yearly-cost {
+    display: block;
+}
 
 .yearly-extra { 
     display: none;
@@ -368,8 +385,6 @@ main {
     line-height: var(--line-height-1);
     color: var(--purple);
 }
-
-.yearly-cost {display: none;}
 
 .pick-box-content {
     display: flex;
@@ -531,13 +546,13 @@ main {
 }
 
 .confirm-btn{
-    background-color: var(--purple) !important;
+    background-color: var(--purple);
     transition: background-color .2s ease;
 }
 
 .confirm-btn:hover,
 .confirm-btn:focus-visible {
-    background-color: var(--hover-color) !important;
+    background-color: var(--hover-color);
 }
 
 .page-finish {
@@ -609,7 +624,6 @@ main {
         justify-content: center;
         align-items: flex-start;
         justify-content: center;
-        z-index: -1;
     }
 
     .step-text { display: none;}

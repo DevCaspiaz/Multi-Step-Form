@@ -18,10 +18,10 @@ function showStep(stepIndex) {
     }
 
     content.forEach((item) => {
-        item.style.display = "none";
+        item.classList.remove("is-active");
     });
 
-    content[stepIndex].style.display = "flex";
+    content[stepIndex].classList.add("is-active");
 
     stepOrder.forEach((item, index) => {
         item.classList.remove("active");
@@ -56,8 +56,7 @@ nextButtons.forEach((button) => {
             return;
         }
 
-        if(currentStep === 0 && !form.checkValidity()){
-            form.reportValidity();
+        if(currentStep === 0){
             return;
         }
 
@@ -144,9 +143,7 @@ personalInfoForm.addEventListener("submit", function (event) {
     });
 
     if (isValid) {
-
-        console.log("FORM VALID");
-
+        showStep(1);
     }
 
 });
@@ -160,30 +157,6 @@ phoneInput.addEventListener("input", function () {
 //*Secondary Content
 
 // BUTTON ACTIONS
-const btn = document.querySelectorAll(".btn");
-
-
-btn.forEach((item) => {
-    
-    item.addEventListener("mouseenter", () => {
-        item.style.backgroundColor = "var(--btn-hover)";
-    });
-
-    item.addEventListener("mouseleave", () => {
-        item.style.backgroundColor = "";
-    })
-
-    item.addEventListener("click", () => {
-        item.style.transform = "translateX(1rem)";
-
-        setTimeout(() => {
-            item.style.transform = "translateX(0)";
-        }, 130);
-    })
-})
-
-
-
 
 
 const optionBtn = document.querySelector(".option-btn");
@@ -191,9 +164,6 @@ const circle = document.querySelector(".circle");
 const yearlyBtn = document.querySelector(".yearly-btn");
 const monthlyBtn = document.querySelector(".monthly-btn");
 
-const monthly = document.querySelectorAll(".monthly");
-const yearly = document.querySelectorAll(".yearly");
-const extraYearly = document.querySelectorAll(".yearly-extra");
 
 const planCards = document.querySelectorAll(".plan-card");
 
@@ -202,23 +172,35 @@ planCards.forEach((planCard) => {
         
         planCards.forEach((item) => {
             item.classList.remove("active-plan-card");
-        })
+        });
 
         planCard.classList.add("active-plan-card");
 
-    })
-})
+    });
+});
+
+
+
+function setBilling(isYearly) {
+    circle.classList.toggle("active", isYearly);
+    yearlyBtn.classList.toggle("selected", isYearly);
+    monthlyBtn.classList.toggle("selected", !isYearly)
+    isYearlyOn();
+}
 
 optionBtn.addEventListener("click", () => {
 
-    circle.classList.toggle("active");
-
-    yearlyBtn.classList.toggle("selected");
-    monthlyBtn.classList.toggle("selected")
-
-    isYearlyOn()
+    setBilling(!circle.classList.contains("active"));
 
 });
+
+monthlyBtn.addEventListener("click", ()=> {
+    setBilling(false);
+});
+
+yearlyBtn.addEventListener("click", () => {
+    setBilling(true);
+})
 
 
 //*Third
@@ -231,53 +213,7 @@ const yearlyCost = document.querySelectorAll(".yearly-cost")
 
 function isYearlyOn() {
     const isYearly = circle.classList.contains("active");
-
-    if(isYearly){
-
-        monthly.forEach((item) => {
-            item.style.display = "none"
-        });
-
-        yearly.forEach((item) => {
-            item.style.display = "block"
-        });
-
-        extraYearly.forEach((item) => {
-            item.style.display = "block"
-        });
-
-        monthlyCost.forEach((item) => {
-            item.style.display = "none"
-        });
-
-        yearlyCost.forEach((item) => {
-            item.style.display = "block"
-        });
-
-    } else {
-
-        monthly.forEach((item) => {
-            item.style.display = "block"
-        })
-
-        yearly.forEach((item) => {
-            item.style.display = "none"
-        })
-
-        extraYearly.forEach((item) => {
-            item.style.display = "none"
-        })
-
-        monthlyCost.forEach((item) => {
-            item.style.display = "block"
-        });
-
-        yearlyCost.forEach((item) => {
-            item.style.display = "none"
-        });
-
-
-    }
+    document.body.classList.toggle("is-yearly", isYearly);
 }
 
 pickBox.forEach((box) =>{

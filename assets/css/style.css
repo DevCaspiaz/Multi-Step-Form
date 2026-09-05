@@ -337,7 +337,9 @@ main {
     color: var(--gray);
 }
 
-.monthly-btn.selected { color: var(--denim);}
+.monthly-btn.selected,
+.yearly-btn.selected
+{ color: var(--denim);}
 
 
 /* Third content */
@@ -542,6 +544,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    transform: translateY(-80%);
 }
 
 .page-finish-img {
@@ -655,9 +658,11 @@ main {
 
     .pick-box-content { gap: 1.6rem}
 
+    .page-finish { transform: translateY(0);}
+
     .destkop-btn { display: none;}
 
-    .mobile-btn { display: none;}
+    .mobile-btn.is-visible {display: flex !important;}
 
 }
 

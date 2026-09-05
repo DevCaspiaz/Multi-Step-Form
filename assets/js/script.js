@@ -5,8 +5,8 @@ const content = document.querySelectorAll(".content");
 
 const nextButtons = document.querySelectorAll(".btn");
 const backButtons = document.querySelectorAll(".back-btn");
-const confirmButton = document.querySelectorAll(".confirm-btn")
-const nextMobileButtons = document.querySelectorAll(".mobile-btn");
+
+const mobileBars = document.querySelectorAll(".mobile-btn");
 
 
 let currentStep = 0;
@@ -32,13 +32,15 @@ function showStep(stepIndex) {
     });
 
     currentStep = stepIndex;
+
+    updateMobileButtons(stepIndex)
 }
 
-const confirmButtons = document.querySelector(".confirm-btn");
-
-confirmButtons.addEventListener("click", () => {
-    showStep(content.length - 1);
-})
+document.querySelectorAll(".confirm-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+        showStep(content.length - 1);
+    });
+});
 
 
 
@@ -65,25 +67,6 @@ nextButtons.forEach((button) => {
     });
 });
 
-nextMobileButtons.forEach((button) => {
-
-    button.addEventListener("click", () =>{
-        if(button.classList.contains("confirm-btn")) {
-            return;
-        }
-
-        if(currentStep === 0 && !form.checkValidity()){
-            form.reportValidity();
-            return;
-        }
-
-        if(currentStep < content.length - 1) {
-            showStep(currentStep + 1);
-        }
-    })
-})
-
-
 backButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if(currentStep > 0) {
@@ -93,6 +76,29 @@ backButtons.forEach((button) => {
 });
 
 showStep(0);
+
+
+//*Mobil buttons
+
+function updateMobileButtons(stepIndex) {
+    mobileBars.forEach((bar) => {
+        bar.classList.remove("is-visible");
+    });
+
+    if(stepIndex === 0) {
+        mobileBars[0].classList.add("is-visible");
+        return;
+    }
+
+    if(stepIndex === 1 || stepIndex === 2) {
+        mobileBars[1].classList.add("is-visible");
+        return;
+    }
+
+    if(stepIndex === 3) {
+        mobileBars[2].classList.add("is-visible")
+    }
+}
 
 
 

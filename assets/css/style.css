@@ -601,8 +601,8 @@ body.is-yearly .yearly-cost {
 @media (max-width: 768px) {
 
     main {
-        display: block;
-        min-height: auto;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .container {
@@ -677,6 +677,10 @@ body.is-yearly .yearly-cost {
     .destkop-btn { display: none;}
 
     .mobile-btn.is-visible {display: flex !important;}
+
+    .mobile-btn {
+        
+    }
 
 }
 

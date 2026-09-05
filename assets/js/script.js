@@ -77,6 +77,61 @@ showStep(0);
 
 
 
+//!Error Message
+const personalInfoForm = document.getElementById("personal-info-form");
+
+personalInfoForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const inputs = personalInfoForm.querySelectorAll(".label-input");
+
+    let isValid = true;
+
+    inputs.forEach(function (input) {
+
+        const errorMessage = input.parentElement.querySelector(".error-message");
+
+        input.classList.remove("error");
+        errorMessage.classList.remove("show");
+
+        if (input.value.trim() === "") {
+
+            input.classList.add("error");
+
+            errorMessage.textContent = "This field is required";
+            errorMessage.classList.add("show");
+
+            isValid = false;
+
+        }
+
+        else if (!input.checkValidity()) {
+
+            input.classList.add("error");
+
+            errorMessage.textContent = "Please enter a valid value";
+            errorMessage.classList.add("show");
+
+            isValid = false;
+        }
+
+    });
+
+    if (isValid) {
+
+        console.log("FORM VALID");
+
+    }
+
+});
+
+const phoneInput = document.getElementById("mobile");
+
+phoneInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9+() -]/g, "");
+});
+
 //*Secondary Content
 
 // BUTTON ACTIONS

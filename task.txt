@@ -1,2 +1,1 @@
 required- kirmizi
-hover cards checkbox change button confirm button: border color

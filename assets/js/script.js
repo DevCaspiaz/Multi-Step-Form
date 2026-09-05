@@ -5,7 +5,8 @@ const content = document.querySelectorAll(".content");
 
 const nextButtons = document.querySelectorAll(".btn");
 const backButtons = document.querySelectorAll(".back-btn");
-
+const confirmButton = document.querySelectorAll(".confirm-btn")
+const nextMobileButtons = document.querySelectorAll(".mobile-btn");
 
 
 let currentStep = 0;
@@ -63,6 +64,24 @@ nextButtons.forEach((button) => {
         }
     });
 });
+
+nextMobileButtons.forEach((button) => {
+
+    button.addEventListener("click", () =>{
+        if(button.classList.contains("confirm-btn")) {
+            return;
+        }
+
+        if(currentStep === 0 && !form.checkValidity()){
+            form.reportValidity();
+            return;
+        }
+
+        if(currentStep < content.length - 1) {
+            showStep(currentStep + 1);
+        }
+    })
+})
 
 
 backButtons.forEach((button) => {

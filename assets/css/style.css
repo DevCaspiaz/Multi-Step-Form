@@ -25,8 +25,7 @@ main {
 }
 
 .mobile-btn {
-    position: absolute;
-    bottom: 0;
+    display: none !important;
     background-color: var(--white);
     padding:1.6rem;
 }
@@ -54,15 +53,14 @@ main {
 }
 
 .step-order {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3.3rem;
+    height: 3.3rem;
     border: 1px solid var(--white);
     border-radius: var(--circle);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* font-size: var(--size-small); */
-    font-size: clamp(var(--size-xsmall), calc(1.147rem + 0.175vw), var(--size-small));
+    font-size: var(--size-small);
     font-weight: var(--weight-bold);
     letter-spacing: 1px;
     line-height: var(--line-height-3);
@@ -118,7 +116,7 @@ main {
 
 .content-title {
     margin-block-end: 1.1rem;
-    font-size: var(--size-heading);
+    font-size: clamp(var(--size-large), calc(2.118rem + 0.751vw), var(--size-heading));
     font-weight: var(--weight-bold);
     line-height: var(--line-height-3);
     color: var(--denim);
@@ -202,10 +200,10 @@ main {
 
 .btn {
     display: block;
-    padding: 1.5rem 2.5rem;
+    padding: clamp(1.2rem, calc(1.094rem + 0.282vw), 1.5rem) clamp(1.6rem, calc(1.283rem + 0.845vw), 2.5rem);
     background-color: var(--denim);
     border-radius: var(--regular-radius);
-    font-size: var(--size-regular);
+    font-size: clamp(var(--size-small), calc(1.330rem + 0.188vw), var(--size-regular));
     font-weight: var(--weight-regular);
     line-height: var(--line-height-3);
     text-align: center;
@@ -220,7 +218,7 @@ main {
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: var(--size-regular);
+    font-size: clamp(var(--size-small), calc(1.330rem + 0.188vw), var(--size-regular));
     font-weight: var(--weight-regular);
     line-height: var(--line-height-3);
     color: var(--gray);
@@ -406,7 +404,7 @@ main {
 }
 
 .pick-box-info {
-    font-size: var(--size-small);
+    font-size: var(--size-xsmall);
     font-weight: var(--weight-thin);
     line-height: var(--line-height-1);
     color: var(--gray);
@@ -457,7 +455,7 @@ main {
 
 .product-title {
     margin-block-end: .7rem;
-    font-size: var(--size-regular);
+    font-size: clamp(var(--size-small), calc(1.330rem + 0.188vw), var(--size-regular));
     font-weight: var(--weight-regular);
     line-height: var(--line-height-3);
     color: var(--denim);
@@ -480,7 +478,7 @@ main {
 }
 
 .product-cost {
-    font-size: var(--size-regular);
+    font-size: clamp(var(--size-small), calc(1.330rem + 0.188vw), var(--size-regular));
     font-weight: var(--weight-bold);
     line-height: var(--line-height-1);
     color: var(--denim);
@@ -524,7 +522,7 @@ main {
 }
 
 .total-cost {
-    font-size: var(--size-medium);
+    font-size: clamp(var(--size-regular), calc(1.459rem + 0.376vw), var(--size-medium));
     font-weight: var(--weight-bold);
     line-height: var(--line-height-1);
     color: var(--purple);
@@ -546,13 +544,20 @@ main {
     text-align: center;
 }
 
-.page-finish img {
-    margin-block-end: 3.2rem;
+.page-finish-img {
+    width: clamp(5.4rem, calc(4.484rem + 2.441vw), 8rem);
+    height: clamp(5.4rem, calc(4.484rem + 2.441vw), 8rem);
+    margin-block: clamp(2.4rem, calc(2.118rem + 0.751vw), 3.2rem);
+}
+
+.page-finish-img img {
+    width: 100%;
+    object-fit: cover;
 }
 
 .finish-title {
     margin-block-end: 1.4rem;
-    font-size: var(--size-heading);
+    font-size: clamp(var(--size-large), calc(2.118rem + 0.751vw), var(--size-heading));
     font-weight: var(--weight-bold);
     line-height: var(--line-height-3);
     color: var(--denim);
@@ -579,55 +584,80 @@ main {
 
     main {
         display: block;
-        height: 100%;
+        min-height: auto;
     }
 
     .container {
         width: 100%;
         grid-template-columns: 1fr;
         gap: 0;
-        height: auto;
+        min-height: 59.5rem;
         padding: 0;
         background-color: transparent;
+        box-shadow: none;
     }
 
     .steps {
-        position: relative;
         background-size: cover;
         background-position: center;
+        height: 17.2rem;
+        border-radius: 0;
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
         justify-content: center;
-        height: 17.2rem;
-        border-radius: 0;
         z-index: -1;
     }
-    
 
     .step-text { display: none;}
 
     .content-box {
+        justify-self: center;
         margin-inline: 1.6rem;
-        margin-top: -9rem;
+        height: max-content;
         background-color: var(--white);
         padding: 3.2rem 2.4rem;
         border-radius: var(--side-radius);
         box-shadow: 0 25px 40px -20px #00000018;
+        transform: translateY(-99px);
     }
-
-    .destkop-btn { display: none;}
 
     .content-title { margin-block-end: .9rem;}
 
     .content-text { margin-block-end: 2.2rem;}
 
-    .content-form { margin-block-end: 0;}
-
     .form-label:not(:last-child) { margin-block-end: 1.6rem;}
+
+    .label-input::placeholder, .label-input { font-size: 1.5rem;}
+
+    .label-input { border-radius: var(--small-radius);}
 
     .label-name { margin-block-end: .3rem;}
 
-    .plan-container { margin-block-end: 0;}
+    .plan-container { 
+        display: flex;
+        flex-direction: column;
+    }
     
+    .plan-card {
+        display: flex;
+        gap: 1.4rem;
+    }
+
+    .content-form,
+    .card-img, .plan-options,
+    .pick-extra,
+    .featured-container,
+    .plan-container
+    { margin-block-end: 0;}
+
+    .pick-box { padding: 1.1rem 1.6rem;}
+
+    .pick-box-content { gap: 1.6rem}
+
+    .destkop-btn { display: none;}
+
+    .mobile-btn { display: none;}
+
 }
+

@@ -698,7 +698,7 @@ body.is-yearly .yearly-cost {
 
     .page-finish { transform: translateY(0);}
 
-    .destkop-btn { display: none;}
+    .desktop-btn { display: none;}
 
     .mobile-btn.is-visible {display: flex !important;}
 

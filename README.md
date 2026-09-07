@@ -38,9 +38,9 @@ The project has been developed for both mobile and desktop interfaces.
 ### 📱 Mobile Version
 
 <p align="center">
-  <img src="./assets/image/screen/screen-mobile.png" width="33%">
-  <img src="./assets/image/screen/screen-mobile-2.png" width="33%">
-  <img src="./assets/image/screen/screen-mobile-3.png" width="33%">
+  <img src="./assets/image/screen/screen-mobile.png" width="30%">
+  <img src="./assets/image/screen/screen-mobile-2.png" width="30%">
+  <img src="./assets/image/screen/screen-mobile-3.png" width="30%">
 </p>
 
 

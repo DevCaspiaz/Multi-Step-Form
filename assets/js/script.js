@@ -10,10 +10,12 @@ const mobileBars = document.querySelectorAll(".mobile-btn");
 
 
 let currentStep = 0;
+const SUMMARY_STEP_INDEX = 3;
+let LAST_STEP_INDEX = content.length-1;
 
 
 function showStep(stepIndex) {
-    if (stepIndex === 3) {
+    if (stepIndex === SUMMARY_STEP_INDEX) {
         updateSummary();
     }
 
@@ -38,7 +40,7 @@ function showStep(stepIndex) {
 
 document.querySelectorAll(".confirm-btn").forEach((button) => {
     button.addEventListener("click", () => {
-        showStep(content.length - 1);
+        showStep(LAST_STEP_INDEX);
     });
 });
 
@@ -48,22 +50,14 @@ const form = document.querySelector(".content-form");
 
 //Next step buttons
 
-nextButtons.forEach((button) => {
-    
-    button.addEventListener("click", () =>{
-
-        if (button.classList.contains("confirm-btn")) {
-            return;
-        }
-
-        if(currentStep === 0){
-            return;
-        }
-
-        if(currentStep < content.length - 1) {
-            showStep(currentStep + 1);
-        }
-    });
+document.addEventListener("click", (event) => {
+    const button = event.target.closest(".btn");
+    if (!button) return;
+    if (button.classList.contains("confirm-btn")) return;
+    if (currentStep === 0) return;
+    if (currentStep < LAST_STEP_INDEX) {
+        showStep(currentStep + 1);
+    }
 });
 
 backButtons.forEach((button) => {
@@ -94,7 +88,7 @@ function updateMobileButtons(stepIndex) {
         return;
     }
 
-    if(stepIndex === 3) {
+    if(stepIndex === SUMMARY_STEP_INDEX) {
         mobileBars[2].classList.add("is-visible")
     }
 }
@@ -111,6 +105,7 @@ personalInfoForm.addEventListener("submit", function (event) {
     const inputs = personalInfoForm.querySelectorAll(".label-input");
 
     let isValid = true;
+    let firstInvalidInput = null;
 
     inputs.forEach(function (input) {
 
@@ -127,6 +122,7 @@ personalInfoForm.addEventListener("submit", function (event) {
             errorMessage.classList.add("show");
 
             isValid = false;
+            if (!firstInvalidInput) firstInvalidInput = input;
 
         }
 
@@ -138,13 +134,17 @@ personalInfoForm.addEventListener("submit", function (event) {
             errorMessage.classList.add("show");
 
             isValid = false;
+            if (!firstInvalidInput) firstInvalidInput = input;
         }
 
     });
 
-    if (isValid) {
-        showStep(1);
+    if (!isValid) {
+        firstInvalidInput.focus();
+        return;
     }
+
+    showStep(1);
 
 });
 
@@ -284,12 +284,23 @@ function updateSummary() {
         item.textContent = period;
     });
 
-    summaryExtras.innerHTML = addons.map((addon) => `
-        <div class="extras">
-            <span class="extra-name">${addon.name}</span>
-            <span class="extra-cost">+$<span>${addon.cost}</span>${period}</span>
-        </div>
-    `).join("");
+    summaryExtras.textContent = "";
+
+    addons.forEach((addon) => {
+        const row = document.createElement("div");
+        row.className = "extras";
+
+        const name = document.createElement("span");
+        name.className = "extra-name";
+        name.textContent = addon.name;
+
+        const cost = document.createElement("span");
+        cost.className = "extra-cost";
+        cost.textContent = `+$${addon.cost}${period}`;
+
+        row.append(name, cost);
+        summaryExtras.appendChild(row);
+    });
 
     summaryLine.classList.toggle("is-hidden", addons.length === 0);
 }

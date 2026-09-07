@@ -1,21 +1,14 @@
-# Multi-Step Form
+# Multi Step Form
 “Multi-step form” Frontend challenge, developed using vanilla HTML, CSS, and JavaScript.
 
-## Demo
-[Live Demo](https://multi-step-form-mu-sage.vercel.app/)
+![Form preview](./assets/image/screen/screen-desktop-1.png)
+This is a modern, comprehensive, responsive form consisting of multiple tasks, built using HTML, CSS, and JavaScript.
+## 🌐 Live Demo
+👉 [multi-step-form-mu-sage.vercel.app](https://multi-step-form-mu-sage.vercel.app/)
 
-![Project ScreenShoots-Desktop view](./assets/image/screen/screen-desktop-1.png)
-![Project ScreenShoots-Mobile view](./assets/image/screen/screen-mobile.png)
-![Project ScreenShoots-Desktop view 2](./assets/image/screen/screen-desktop-2.png)
-![Project ScreenShoots-Mobile view 2](./assets/image/screen/screen-mobile-2.png)
-![Project ScreenShoots-Mobile view 3](./assets/image/screen/screen-mobile-3.png)
-
-
-## 🛠️ Technologies Used
-- HTML5 (semantic markup)
-- CSS3 (custom properties, `clamp()`, Grid & Flexbox)
-- Vanilla JavaScript
-
+## 📌 About The Project
+It is an online service-style form on a single page. The form is user-friendly and straightforward, consisting of basic personal information, annual and monthly plan options, additional extras, and the total bill.
+The project has been developed for both mobile and desktop interfaces.
 
 ## ✨ Features
 
@@ -24,6 +17,31 @@
 - Fully accessible via keyboard (Tab, arrow keys, Space/Enter)
 - Responsive design for mobile, tablet, and desktop
 - Native form validation (with custom error messages)
+
+## 🛠️ Technologies Used
+- HTML5 (semantic markup)
+- CSS3 (custom properties, `clamp()`, Grid & Flexbox)
+- Git & GitHub
+- Vanilla JavaScript
+- Vercel
+
+
+
+### 💻 Desktop Version
+
+<p align="center">
+  <img src="./assets/image/screen/screen-desktop-1.png" width="50%">
+  <img src="./assets/image/screen/screen-desktop-2.png" width="50%">
+</p>
+
+
+### 📱 Mobile Version
+
+<p align="center">
+  <img src="./assets/image/screen/screen-mobile.png" width="33%">
+  <img src="./assets/image/screen/screen-mobile-2.png" width="33%">
+  <img src="./assets/image/screen/screen-mobile-3.png" width="33%">
+</p>
 
 
 ## 🚀 How to Run It

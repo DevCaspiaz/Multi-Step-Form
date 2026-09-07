@@ -1,5 +1,5 @@
 # Multi Step Form
-“Multi-step form” Frontend challenge, developed using vanilla HTML, CSS, and JavaScript.
+“Multi-step form” A subscription signup form UI, developed using vanilla HTML, CSS, and JavaScript.
 
 ![Form preview](./assets/image/screen/screen-desktop-1.png)
 This is a modern, comprehensive, responsive form consisting of multiple tasks, built using HTML, CSS, and JavaScript.

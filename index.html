@@ -98,7 +98,7 @@
 
                             <input type="text" placeholder="e.g Stephan King" id="name" name="name" class="label-input" required>
 
-                            <span class="error-message"></span>
+                            <span class="error-message" role="alert"></span>
 
                         </label>
 
@@ -108,7 +108,7 @@
                             
                             <input type="email" name="email" id="email" placeholder="e.g stephanking@lorem.com" autocomplete="email" class="label-input" required>
 
-                            <span class="error-message"></span>
+                            <span class="error-message" role="alert"></span>
 
                         </label>
 
@@ -118,7 +118,7 @@
 
                             <input type="tel" name="mobile" id="mobile" placeholder="e.g +1 234 567 890" autocomplete="tel" class="label-input" required pattern="[0-9+() -]+">
 
-                            <span class="error-message"></span>
+                            <span class="error-message" role="alert"></span>
 
                         </label>
 
@@ -138,7 +138,9 @@
 
                     <div class="plan-container">
 
-                        <div class="plan-card active-plan-card">
+                        <label class="plan-card active-plan-card">
+
+                            <input type="radio" name="plan" value="arcade" class="visually-hidden" checked>
 
                             <img src="./assets/image/arcade.svg" alt="" class="card-img">
 
@@ -153,9 +155,11 @@
 
                             </div>
 
-                        </div>
+                        </label>
 
-                        <div class="plan-card">
+                        <label class="plan-card">
+
+                            <input type="radio" name="plan" value="advanced" class="visually-hidden">
 
                             <img src="./assets/image/advanced.svg" alt="" class="card-img">
 
@@ -170,9 +174,11 @@
 
                             </div>
 
-                        </div>
+                        </label>
 
-                        <div class="plan-card">
+                        <label class="plan-card">
+
+                            <input type="radio" name="plan" value="pro" class="visually-hidden">
 
                             <img src="./assets/image/pro.svg" alt="" class="card-img">
 
@@ -187,8 +193,7 @@
 
                             </div>
 
-                        </div>
-
+                        </label>
 
                     </div>
 
@@ -223,7 +228,9 @@
 
                     <div class="pick-extra">
 
-                        <div class="pick-box">
+                        <label class="pick-box" for="addon-online">
+
+                            <input type="checkbox" name="addons" id="addon-online" value="online-service" class="visually-hidden">
 
                             <div class="pick-box-content">
 
@@ -243,9 +250,11 @@
                                 <span class="yearly-cost">+$<span class="cost">10</span>/yr</span>
                             </div>
 
-                        </div>
+                        </label>
 
-                        <div class="pick-box">
+                        <label class="pick-box" for="addon-storage">
+
+                            <input type="checkbox" name="addons" id="addon-storage" value="larger-storage" class="visually-hidden">
 
                             <div class="pick-box-content">
 
@@ -265,9 +274,12 @@
                                 <span class="yearly-cost">+$<span class="cost">20</span>/yr</span>
                             </div>
 
-                        </div>
+                        </label>
 
-                        <div class="pick-box">
+                        <label class="pick-box" for="addon-profile">
+
+                            <input type="checkbox" name="addons" id="addon-profile" value="customizable" class="visually-hidden">
+
 
                             <div class="pick-box-content">
 
@@ -287,7 +299,7 @@
                                 <span class="yearly-cost">+$<span class="cost">20</span>/yr</span>
                             </div>
 
-                        </div>
+                        </label>
 
                     </div>
 

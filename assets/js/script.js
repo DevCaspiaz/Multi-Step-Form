@@ -167,16 +167,18 @@ const monthlyBtn = document.querySelector(".monthly-btn");
 
 const planCards = document.querySelectorAll(".plan-card");
 
-planCards.forEach((planCard) => {
-    planCard.addEventListener("click", () => {
+document.querySelectorAll(`input[name="plan"]`).forEach((radio) => {
+    
+    radio.addEventListener("change", () => {
         
-        planCards.forEach((item) => {
-            item.classList.remove("active-plan-card");
+        document.querySelectorAll(".plan-card").forEach((card) => {
+            card.classList.remove("active-plan-card");
         });
 
-        planCard.classList.add("active-plan-card");
+        radio.closest(".plan-card").classList.add("active-plan-card");
 
     });
+
 });
 
 
@@ -216,13 +218,12 @@ function isYearlyOn() {
     document.body.classList.toggle("is-yearly", isYearly);
 }
 
-pickBox.forEach((box) =>{
+document.querySelectorAll(`input[name="addons"]`).forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+        checkbox.closest(".pick-box").classList.toggle("selected", checkbox.checked);
+    });
+});
 
-    box.addEventListener("click", ()=> {
-        box.classList.toggle("selected");
-    })
-
-})
 
 
 //*Fourth — summary
@@ -239,6 +240,11 @@ const changeBtn = document.querySelector(".change-btn");
 
 function getSelectedPlan() {
     const selectedCard = document.querySelector(".active-plan-card");
+
+    if(!selectedCard) {
+        console.log("None of plan-card selected-Can not find .active-plan-card class element ");
+        return null;
+    }
     const isYearly = circle.classList.contains("active");
     const costSelector = isYearly ? ".yearly .cost" : ".monthly .cost";
 
@@ -260,6 +266,9 @@ function getSelectedAddons(isYearly) {
 
 function updateSummary() {
     const plan = getSelectedPlan();
+
+    if(!plan) { return;}
+
     const addons = getSelectedAddons(plan.isYearly);
     const period = plan.isYearly ? "/yr" : "/mo";
     const billingLabel = plan.isYearly ? "(Yearly)" : "(Monthly)";

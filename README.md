@@ -57,3 +57,7 @@ That's it.
 
 - State management is handled via the DOM (e.g., the selected plan is identified by the `.active-plan-card` class). This was a deliberate choice for a small-scale project; if the project were to grow, it would be necessary to switch to a separate data model.
 - Plan and add-on selections are built using actual `<input type="radio/checkbox">` elements (visually hidden and styled via labels) — this ensures that keyboard accessibility is natively supported by the browser.
+
+## 🎨 Design Credit
+
+This project's UI design is based on a Figma file I found online; I am not the original designer. This repository only contains my own code implementation, created for practice purposes.

@@ -3,7 +3,6 @@ const stepOrder = document.querySelectorAll(".step-order");
 
 const content = document.querySelectorAll(".content");
 
-const nextButtons = document.querySelectorAll(".btn");
 const backButtons = document.querySelectorAll(".back-btn");
 
 const mobileBars = document.querySelectorAll(".mobile-btn");
@@ -164,9 +163,6 @@ const circle = document.querySelector(".circle");
 const yearlyBtn = document.querySelector(".yearly-btn");
 const monthlyBtn = document.querySelector(".monthly-btn");
 
-
-const planCards = document.querySelectorAll(".plan-card");
-
 document.querySelectorAll(`input[name="plan"]`).forEach((radio) => {
     
     radio.addEventListener("change", () => {
@@ -210,8 +206,6 @@ yearlyBtn.addEventListener("click", () => {
 
 
 const pickBox = document.querySelectorAll(".pick-box");
-const monthlyCost = document.querySelectorAll(".monthly-cost")
-const yearlyCost = document.querySelectorAll(".yearly-cost")
 
 function isYearlyOn() {
     const isYearly = circle.classList.contains("active");
